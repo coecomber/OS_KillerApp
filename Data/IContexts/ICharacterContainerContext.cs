@@ -8,5 +8,6 @@ namespace Data.IContexts
     public interface ICharacterContainerContext
     {
         List<Character> GetAllCharacters();
+        Character GetCharacterByID(int characterID);
     }
 }

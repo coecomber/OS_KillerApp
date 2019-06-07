@@ -16,6 +16,11 @@ namespace Data.Repository
             this.context = context;
         }
 
+        public Character GetCharacterByCharacterID(int characterID)
+        {
+            return context.GetCharacterByID(characterID);
+        }
+
         public List<Character> GetAllCharacters() => context.GetAllCharacters();
     }
 }

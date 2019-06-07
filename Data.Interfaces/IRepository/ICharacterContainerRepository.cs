@@ -8,5 +8,7 @@ namespace Data.Interfaces.IRepository
     public interface ICharacterContainerRepository
     {
         List<Character> GetAllCharacters();
+
+        Character GetCharacterByCharacterID(int characterID);
     }
 }

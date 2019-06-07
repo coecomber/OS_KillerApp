@@ -19,7 +19,7 @@ namespace Logic
 
         public Character GetCharacterByID(int ID)
         {
-            throw new NotImplementedException();
+            return characterContainerRepository.GetCharacterByCharacterID(ID);
         }
     }
 }

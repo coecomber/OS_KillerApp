@@ -22,10 +22,10 @@ namespace TestLogic
             //Arange in Setup
 
             //Act
-            var result = myAccountContainer.Login("Vishengel", "w4chtw00rd");
+            var result = myAccountContainer.Login("vishengel", "w4chtw00rd");
 
             //Assert
-            Assert.That(result.Username, Is.EqualTo("Vishengel"));
+            Assert.That(result.Username, Is.EqualTo("vishengel"));
         }
 
         [Test]
