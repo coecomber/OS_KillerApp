@@ -7,10 +7,8 @@ using System.Data.SqlClient;
 
 namespace Data.Contexts
 {
-    public class AccountContainerContext : IAccountContainerContext
+    public class AccountContainerContext : Connection, IAccountContainerContext
     {
-        private string connectionString = @"Server=tcp:oskillerapp.database.windows.net,1433;Initial Catalog=OSDatabase;Persist Security Info=False;User ID=Joost;Password=Varken12;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
         public void InsertAccount(Account account)
         {
             string username = account.Username;
@@ -170,4 +168,4 @@ namespace Data.Contexts
         //    return accounts;
         //}
     }
-    }
+}

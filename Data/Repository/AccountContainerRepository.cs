@@ -1,9 +1,6 @@
 ﻿using Data.IContexts;
-using Data.Interfaces;
+using Data.Interfaces.IRepository;
 using Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Data.Repository
 {

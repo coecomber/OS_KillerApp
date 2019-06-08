@@ -8,11 +8,8 @@ using System.Text;
 
 namespace Data.Contexts
 {
-    public class CharacterContainerContext : ICharacterContainerContext
+    public class CharacterContainerContext : Connection, ICharacterContainerContext
     {
-        private string connectionString = @"Server=tcp:oskillerapp.database.windows.net,1433;Initial Catalog=OSDatabase;Persist Security Info=False;User ID=Joost;Password=Varken12;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
-
         public Character GetCharacterByID(int characterID)
         {
             Character character = new Character();

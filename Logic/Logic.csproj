@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -9,10 +9,6 @@
     <ProjectReference Include="..\DataFactory\DataFactory.csproj" />
     <ProjectReference Include="..\Logic.Interfaces\Logic.Interfaces.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Enum\" />
   </ItemGroup>
 
 </Project>

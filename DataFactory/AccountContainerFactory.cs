@@ -1,5 +1,5 @@
 ﻿using Data.Contexts;
-using Data.Interfaces;
+using Data.Interfaces.IRepository;
 using Data.Repository;
 
 namespace DataFactory

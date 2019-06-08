@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Data.Interfaces;
 using Logic.Interfaces.ILogic;
 using System.Security.Cryptography;
 using System.Diagnostics;
 using DataFactory;
+using Data.Interfaces.IRepository;
 
 namespace Logic
 {
