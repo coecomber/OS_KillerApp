@@ -8,6 +8,6 @@ namespace Logic.Interfaces.ILogic
     public interface IInventoryContainerLogic
     {
         List<Inventory> GetAllInventories();
-        void GetCharacterWeapons(Character character);
+        void GetCharacterInventory(Character character);
     }
 }

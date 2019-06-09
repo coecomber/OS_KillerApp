@@ -3,8 +3,9 @@ using Logic.Interfaces.ILogic;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Logic.Interfaces.ILogic.Item;
 
-namespace LogicFactory
+namespace LogicFactory.Item
 {
     public class WeaponLogicFactory
     {

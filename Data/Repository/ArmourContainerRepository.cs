@@ -18,7 +18,7 @@ namespace Data.Repository
 
         public List<Armour> GetAllArmours()
         {
-            throw new NotImplementedException();
+            return context.GetAllArmours();
         }
     }
 }

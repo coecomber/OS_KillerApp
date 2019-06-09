@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Data.Repository
 {
-    class FishContainerRepository : IFishContainerRepository
+    public class FishContainerRepository : IFishContainerRepository
     {
         private IFishContainerContext context;
 
@@ -18,7 +18,7 @@ namespace Data.Repository
 
         public List<FishItem> GetAllFishes()
         {
-            throw new NotImplementedException();
+            return context.GetAllFishes();
         }
     }
 }

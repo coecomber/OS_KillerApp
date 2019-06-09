@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Interfaces.IRepository
+namespace Logic.Interfaces.ILogic
 {
-    public interface IEquippedContainerRepository
+    public interface IEquippedContainerLogic
     {
         List<Equipped> GetAllEquipped();
+        void GetCharacterEquipped(Character character);
     }
 }

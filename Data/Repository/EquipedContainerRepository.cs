@@ -1,5 +1,6 @@
 ﻿using Data.IContexts;
 using Data.Interfaces.IRepository;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,11 @@ namespace Data.Repository
         public EquipedContainerRepository(IEquippedContainerContext context)
         {
             this.context = context;
+        }
+
+        public List<Equipped> GetAllEquipped()
+        {
+            return context.GetAllEquipped();
         }
     }
 }

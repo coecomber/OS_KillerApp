@@ -18,7 +18,7 @@ namespace Data.Repository
 
         public List<SmithingItem> GetAllSmithingItems()
         {
-            throw new NotImplementedException();
+            return context.GetAllSmithingItems();
         }
     }
 }

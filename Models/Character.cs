@@ -6,6 +6,7 @@ namespace Models
 {
     public class Character
     {
+        //Base values from database
         public int ID { get; set; }
         public string Name { get; set; }
         public Armour EquipedHelmet { get; set; }
@@ -17,6 +18,9 @@ namespace Models
 
         //Inventory
         public List<Weapon> myWeapons { get; set; }
+        public List<Armour> myArmours { get; set; }
+        public List<FishItem> myFishItems { get; set; }
+        public List<SmithingItem> mySmithingItems { get; set; }
 
         //Skil exp
         public int FishingExperience { get; set; }
@@ -45,6 +49,9 @@ namespace Models
         public Character()
         {
             myWeapons = new List<Weapon>();
+            myArmours = new List<Armour>();
+            myFishItems = new List<FishItem>();
+            mySmithingItems = new List<SmithingItem>();
         }
 
     }

@@ -2,6 +2,7 @@
 using DataFactory;
 using Logic.Abstract;
 using Logic.Interfaces.ILogic;
+using Logic.Interfaces.ILogic.Item;
 using Models;
 using System;
 using System.Collections.Generic;
