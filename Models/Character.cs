@@ -17,8 +17,9 @@ namespace Models
         public Weapon EquipedWeapon { get; set; }
         public int Gold { get; set; }
 
-        //Location
+        //Location and health
         public Locations location { get; set; }
+        public int CurrentHealth { get; set; }
 
         //Inventory
         public List<Weapon> myWeapons { get; set; }

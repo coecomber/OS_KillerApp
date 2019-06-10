@@ -17,9 +17,18 @@ namespace Logic.Abstract
         public float AttackSpeed { get; set; }
         public int AttackBonus { get; set; }
 
-        public int CalculateDamage()
+        public int CalculateDamage(int totalStrength)
         {
             int damage = 1;
+
+            int calculatedDamage = totalStrength / 3;
+            
+            if(calculatedDamage < 1)
+            {
+                calculatedDamage = 1;
+            }
+
+            damage = calculatedDamage;
 
             return damage;
         }

@@ -1,15 +1,11 @@
-﻿using Data.Interfaces;
+﻿using Logic.Abstract;
+using Logic.Interfaces.ILogic;
+using Models;
 using System;
 
 namespace Logic
 {
-    public class AccountLogic
+    public class AccountLogic : LivingCreatureLogic, IAccountLogic
     {
-        IAccountRepository accountRepository;
-
-        public AccountLogic(IAccountRepository accountRepository)
-        {
-            this.accountRepository = accountRepository;
-        }
     }
 }
