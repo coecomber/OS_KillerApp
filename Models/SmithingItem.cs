@@ -11,6 +11,7 @@ namespace Models
         public bool IsBar { get; set; }
         public int Value { get; set; }
         public string Description { get; set; }
+        public int Amount { get; set; }
 
         public SmithingItem(int id, string name, bool isBar, int value, string description)
         {
@@ -19,6 +20,11 @@ namespace Models
             IsBar = isBar;
             Value = value;
             Description = description;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Models
         public ArmourTypes ArmourType { get; set; }
         public int Value { get; set; }
         public string Description { get; set; }
+        public int Amount { get; set; }
 
         public Armour(int id, string name, int attackStabBonus, int attackSlashBonus,
             int defenceStabBonus, int defenceSlashBonus, int defenceRangedBonus,
@@ -34,6 +35,11 @@ namespace Models
             ArmourType = armourType;
             Value = value;
             Description = description;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

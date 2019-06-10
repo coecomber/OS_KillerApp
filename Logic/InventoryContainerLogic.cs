@@ -40,6 +40,7 @@ namespace Logic
                     {
                         if(weapon.ID == inventory.WeaponID)
                         {
+                            weapon.Amount = inventory.Amount;
                             character.myWeapons.Add(weapon);
                         }
                     }
@@ -61,6 +62,7 @@ namespace Logic
                     {
                         if (armour.ID == inventory.ArmourID)
                         {
+                            armour.Amount = inventory.Amount;
                             character.myArmours.Add(armour);
                         }
                     }
@@ -82,6 +84,7 @@ namespace Logic
                     {
                         if (fishItem.ID == inventory.FishID)
                         {
+                            fishItem.Amount = inventory.Amount;
                             character.myFishItems.Add(fishItem);
                         }
                     }
@@ -103,6 +106,7 @@ namespace Logic
                     {
                         if (smithingItem.ID == inventory.SmithingItemID)
                         {
+                            smithingItem.Amount = inventory.Amount;
                             character.mySmithingItems.Add(smithingItem);
                         }
                     }

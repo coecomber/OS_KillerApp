@@ -12,6 +12,7 @@ namespace Models
         public int HealValue { get; set; }
         public int Value { get; set; }
         public string Description { get; set; }
+        public int Amount { get; set; }
 
         public FishItem(int id, string name, bool isRaw,
             int healValue, int value, string description)
@@ -22,6 +23,11 @@ namespace Models
             HealValue = healValue;
             Value = value;
             Description = description;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
