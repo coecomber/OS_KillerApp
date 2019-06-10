@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,6 +16,9 @@ namespace Models
         public Armour EquipedFeet { get; set; }
         public Weapon EquipedWeapon { get; set; }
         public int Gold { get; set; }
+
+        //Location
+        public Locations location { get; set; }
 
         //Inventory
         public List<Weapon> myWeapons { get; set; }
