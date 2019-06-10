@@ -9,8 +9,8 @@ Must haves:
 5
 6 = done
 7 = done
-8
-9
+8 = done
+9 = done
 10
-11
+11 = done
 19 = done
