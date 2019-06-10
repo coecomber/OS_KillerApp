@@ -17,9 +17,16 @@ namespace Models
         public Weapon EquipedWeapon { get; set; }
         public int Gold { get; set; }
 
-        //Location and health
+        //Location, health, attackstyle, slayer info and last death time
+        //These values all don't get set from the database.
         public Locations location { get; set; }
         public int CurrentHealth { get; set; }
+        public AttackStyles AttackStyle { get; set; }
+        public int SlayerMonsterID { get; set; }
+        public int SlayerMonsterAmount { get; set; }
+        public string SlayerMonsterName { get; set; }
+        public DateTime DeathTime { get; set; }
+
 
         //Inventory
         public List<Weapon> myWeapons { get; set; }
@@ -57,6 +64,10 @@ namespace Models
             myArmours = new List<Armour>();
             myFishItems = new List<FishItem>();
             mySmithingItems = new List<SmithingItem>();
+            AttackStyle = AttackStyles.Attack;
+            DateTime currentTime = DateTime.Now;
+            DateTime tenMinutesBeforeCurrentTime = currentTime.Subtract(TimeSpan.FromMinutes(10));
+            DeathTime = tenMinutesBeforeCurrentTime;
         }
 
     }

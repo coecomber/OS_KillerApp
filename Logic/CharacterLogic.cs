@@ -4,6 +4,7 @@ using Logic.Abstract;
 using Logic.Interfaces.ILogic;
 using Logic.Item;
 using Models;
+using Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Logic
     {
         private IMonsterDropContainerRepository monsterDropContainerRepository = new MonsterDropContainerFactory().GetMonsterDropContainerRepository();
         private IDropContainerRepository dropContainerRepository = new DropContainerFactory().GetDropContainerRepository();
-
+        private ISlayerTaskContainerRepository slayerTaskContainerRepository = new SlayerTaskContainerFactory().GetSlayerTaskContainerRepository();
 
         public int SlayerAmount { get; set; }
 
@@ -147,6 +148,87 @@ namespace Logic
                     }
                 }
             }
+
+            //Calculate how much experience the player got. This is based on the amount of health the defeated monster had.
+            int defeatedHP = monster.Health * 3;
+
+            if(character.AttackStyle == AttackStyles.Attack)
+            {
+                character.AttackExperience = character.AttackExperience + defeatedHP;
+            }
+            else if(character.AttackStyle == AttackStyles.Defence)
+            {
+                character.DefenceExperience = character.DefenceExperience + defeatedHP;
+            }
+            else if (character.AttackStyle == AttackStyles.Defence)
+            {
+                character.StrengthExperience = character.StrengthExperience + defeatedHP;
+            }
+
+            //See if the killed monster was the slayer task of the player. If so we need to withdraw 1 monster from the amount of kills needed and give slayer experience.
+            if(character.SlayerMonsterID == monster.ID)
+            {
+                character.SlayerExperience = character.SlayerExperience + defeatedHP;
+                character.SlayerMonsterAmount -= 1;
+                if(character.SlayerMonsterAmount == 0)
+                {
+                    character.SlayerMonsterID = 0;
+                    character.SlayerMonsterName = null;
+                }
+            }
+
+            SkillLogic skillLogic = new SkillLogic();
+            skillLogic.SetCorrectLevels(character);
+
+            return character;
+        }
+
+        public Character GetSlayerTask(Character character)
+        {
+            List<SlayerTask> slayerTasks = slayerTaskContainerRepository.GetAllSlayerTasks();
+
+            foreach(SlayerTask slayerTask in slayerTasks)
+            {
+                if(character.ID == slayerTask.CharacterID)
+                {
+                    character.SlayerMonsterID = slayerTask.MonsterID;
+                    character.SlayerMonsterAmount = slayerTask.Amount;
+                    MonsterContainerLogic monsterContainerLogic = new MonsterContainerLogic();
+                    foreach (Monster monster in monsterContainerLogic.GetAllMonsters())
+                    {
+                        if(slayerTask.MonsterID == monster.ID)
+                        {
+                            character.SlayerMonsterName = monster.Name;
+                        }
+                    }
+                }
+            }
+
+            return character;
+        }
+
+        public Character GetNewSlayerTask(Character character)
+        {
+            MonsterContainerLogic monsterContainerLogic = new MonsterContainerLogic();
+            List<Monster> monsters = monsterContainerLogic.GetAllMonsters();
+
+            Random random = new Random();
+            int randomIndex = random.Next(monsters.Count);
+            int randomAmount = random.Next(10, 25);
+
+            Monster newSlayerMonster = monsters[randomIndex];
+
+            character.SlayerMonsterAmount = randomAmount;
+            character.SlayerMonsterName = newSlayerMonster.Name;
+            character.SlayerMonsterID = newSlayerMonster.ID;
+
+            return character;
+        }
+
+        public Character Die(Character character)
+        {
+            character.DeathTime = DateTime.Now;
+            character.location = Locations.Lumbridge;
 
             return character;
         }

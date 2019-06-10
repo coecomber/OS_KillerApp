@@ -10,6 +10,7 @@ namespace Models.Enums
         Varrock,
         CowFields,
         DraynorVillage,
-        ChickenPen
+        ChickenPen,
+        DraynorManor
     }
 }
