@@ -25,6 +25,16 @@ namespace Models
             Description = description;
         }
 
+        public FishItem()
+        {
+
+        }
+
+        public void AddToAmount(int amount)
+        {
+            Amount += amount;
+        }
+
         public override string ToString()
         {
             return Name;

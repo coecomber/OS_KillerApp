@@ -14,7 +14,7 @@ namespace Logic
 
         public List<Character> GetAllCharacters()
         {
-            throw new NotImplementedException();
+            return characterContainerRepository.GetAllCharacters();
         }
 
         public Character GetCharacterByID(int ID)

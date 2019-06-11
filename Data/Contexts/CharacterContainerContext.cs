@@ -61,7 +61,39 @@ namespace Data.Contexts
 
         public List<Character> GetAllCharacters()
         {
-            throw new NotImplementedException();
+            List<Character> characters = new List<Character>();
+            SqlDataReader reader = null;
+
+            using (SqlConnection _conn = new SqlConnection(connectionString))
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand("GetAllCharacters", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Character character = new Character();
+
+                    character.ID = (Convert.ToInt32(reader["CharacterID"]));
+                    character.Name = (Convert.ToString(reader["Username"]));
+                    character.Gold = (Convert.ToInt32(reader["Gold"]));
+
+                    character.FishingExperience = (Convert.ToInt32(reader["FishingExperience"]));
+                    character.CookingExperience = (Convert.ToInt32(reader["CookingExperience"]));
+                    character.SmithingExperience = (Convert.ToInt32(reader["SmithingExperience"]));
+                    character.SlayerExperience = (Convert.ToInt32(reader["SlayerExperience"]));
+                    character.StrengthExperience = (Convert.ToInt32(reader["StrengthExperience"]));
+                    character.AttackExperience = (Convert.ToInt32(reader["AttackExperience"]));
+                    character.DefenceExperience = (Convert.ToInt32(reader["DefenceExperience"]));
+                    character.HitpointsExperience = (Convert.ToInt32(reader["HitpointsExperience"]));
+                    character.RangedExperience = (Convert.ToInt32(reader["RangedExperience"]));
+                    character.MagicExperience = (Convert.ToInt32(reader["MagicExperience"]));
+
+                    characters.Add(character);
+                }
+            }
+            return characters;
         }
     }
 }
