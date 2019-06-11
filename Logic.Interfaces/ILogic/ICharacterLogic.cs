@@ -13,5 +13,6 @@ namespace Logic.Interfaces.ILogic
         Character Die(Character character);
         Character GetSlayerTask(Character character);
         Character GetNewSlayerTask(Character character);
+        void RemoveItemsWithoutAmount(Character character);
     }
 }

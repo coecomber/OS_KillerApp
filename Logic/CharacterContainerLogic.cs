@@ -21,5 +21,10 @@ namespace Logic
         {
             return characterContainerRepository.GetCharacterByCharacterID(ID);
         }
+
+        public void UpdateCharacter(Character character)
+        {
+            characterContainerRepository.UpdateCharacter(character);
+        }
     }
 }

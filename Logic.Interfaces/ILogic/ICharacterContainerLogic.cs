@@ -9,5 +9,6 @@ namespace Logic.Interfaces.ILogic
     {
         List<Character> GetAllCharacters();
         Character GetCharacterByID(int ID);
+        void UpdateCharacter(Character character);
     }
 }

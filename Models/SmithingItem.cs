@@ -22,6 +22,16 @@ namespace Models
             Description = description;
         }
 
+        public SmithingItem()
+        {
+
+        }
+
+        public void AddToAmount(int amount)
+        {
+            Amount += amount;
+        }
+
         public override string ToString()
         {
             return Name;

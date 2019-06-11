@@ -160,10 +160,13 @@ namespace Logic
             {
                 character.DefenceExperience = character.DefenceExperience + defeatedHP;
             }
-            else if (character.AttackStyle == AttackStyles.Defence)
+            else if (character.AttackStyle == AttackStyles.Strength)
             {
                 character.StrengthExperience = character.StrengthExperience + defeatedHP;
             }
+
+            //You always get hitpoints exp for defeating a monster.
+            character.HitpointsExperience = character.HitpointsExperience + monster.Health;
 
             //See if the killed monster was the slayer task of the player. If so we need to withdraw 1 monster from the amount of kills needed and give slayer experience.
             if(character.SlayerMonsterID == monster.ID)
@@ -177,6 +180,8 @@ namespace Logic
                 }
             }
 
+            //Sets correct levels before passing character back. If in the process of defeating a mosnter
+            //One on multiple skills levelled up this will also be passed.
             SkillLogic skillLogic = new SkillLogic();
             skillLogic.SetCorrectLevels(character);
 
@@ -205,6 +210,25 @@ namespace Logic
             }
 
             return character;
+        }
+
+        public void RemoveItemsWithoutAmount(Character character)
+        {
+            List<Weapon> newWeaponsList = character.myWeapons;
+            newWeaponsList.RemoveAll(item => item.Amount == 0);
+            character.myWeapons = newWeaponsList;
+
+            List<Armour> newArmourList = character.myArmours;
+            newArmourList.RemoveAll(item => item.Amount == 0);
+            character.myArmours = newArmourList;
+
+            List<FishItem> newFishItemList = character.myFishItems;
+            newFishItemList.RemoveAll(item => item.Amount == 0);
+            character.myFishItems = newFishItemList;
+
+            List<SmithingItem> newSmithingItemList = character.mySmithingItems;
+            newSmithingItemList.RemoveAll(item => item.Amount == 0);
+            character.mySmithingItems = newSmithingItemList;
         }
 
         public Character GetNewSlayerTask(Character character)

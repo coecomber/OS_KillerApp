@@ -22,5 +22,10 @@ namespace Data.Repository
         }
 
         public List<Character> GetAllCharacters() => context.GetAllCharacters();
+
+        public void UpdateCharacter(Character character)
+        {
+            context.UpdateCharacter(character);
+        }
     }
 }

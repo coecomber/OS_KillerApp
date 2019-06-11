@@ -95,5 +95,37 @@ namespace Data.Contexts
             }
             return characters;
         }
+
+        public void UpdateCharacter(Character character)
+        {
+            using (SqlConnection _conn = new SqlConnection(connectionString))
+            {
+                SqlDataReader reader = null;
+
+                _conn.Open();
+
+                //Geef parameter mee met naam stored procedure en geef aan dat het om een stored procedure gaat
+                SqlCommand cmd = new SqlCommand("UpdateCharacter", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Geeft parameters mee met de stored procedure welke mijn stored procedure verwacht/nodig heeft
+                cmd.Parameters.Add(new SqlParameter("@CharacterID", character.ID));
+                cmd.Parameters.Add(new SqlParameter("@FishingExperience", character.FishingExperience));
+                cmd.Parameters.Add(new SqlParameter("@CookingExperience", character.CookingExperience));
+                cmd.Parameters.Add(new SqlParameter("@SmithingExperience", character.SmithingExperience));
+                cmd.Parameters.Add(new SqlParameter("@SlayerExperience", character.SlayerExperience));
+                cmd.Parameters.Add(new SqlParameter("@StrengthExperience", character.StrengthExperience));
+                cmd.Parameters.Add(new SqlParameter("@AttackExperience", character.AttackExperience));
+                cmd.Parameters.Add(new SqlParameter("@DefenceExperience", character.DefenceExperience));
+                cmd.Parameters.Add(new SqlParameter("@HitpointsExperience", character.HitpointsExperience));
+                cmd.Parameters.Add(new SqlParameter("@RangedExperience", character.RangedExperience));
+                cmd.Parameters.Add(new SqlParameter("@MagicExperience", character.MagicExperience));
+                cmd.Parameters.Add(new SqlParameter("@Gold", character.Gold));
+
+                reader = cmd.ExecuteReader();
+
+                _conn.Close();
+            }
+        }
     }
 }

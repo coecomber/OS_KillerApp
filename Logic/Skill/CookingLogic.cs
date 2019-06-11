@@ -34,7 +34,6 @@ namespace Logic.Skill
             if (cookedFish)
             {
                 bool addedFish = false;
-                bool manuallyAddAfterForeach = false;
                 FishItem fishItemToAdd = new FishItem();
 
                 //Add cooked fish to characters inventory
@@ -47,6 +46,7 @@ namespace Logic.Skill
                     if (myFishItems.Name == fishToAdd && addedFish == false)
                     {
                         myFishItems.AddToAmount(1);
+                        character.CookingExperience += 44;
                         addedFish = true;
                     }
                 }
@@ -61,13 +61,9 @@ namespace Logic.Skill
                             fishItemToAdd = allfishItem;
                             fishItemToAdd.Amount = 1;
                             character.myFishItems.Add(fishItemToAdd);
+                            character.CookingExperience += 44;
                         }
                     }
-                }
-
-                if (manuallyAddAfterForeach)
-                {
-                    
                 }
             }
         }

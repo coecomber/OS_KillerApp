@@ -9,5 +9,6 @@ namespace Data.IContexts
     {
         List<Character> GetAllCharacters();
         Character GetCharacterByID(int characterID);
+        void UpdateCharacter(Character character);
     }
 }
