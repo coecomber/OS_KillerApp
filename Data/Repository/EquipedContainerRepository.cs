@@ -20,5 +20,10 @@ namespace Data.Repository
         {
             return context.GetAllEquipped();
         }
+
+        public void UpdateEquipped(Character character)
+        {
+            context.UpdateEquipped(character);
+        }
     }
 }

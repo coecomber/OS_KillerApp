@@ -38,5 +38,72 @@ namespace Data.Contexts
             }
             return equippedItems;
         }
+
+        public void UpdateEquipped(Character character)
+        {
+            using (SqlConnection _conn = new SqlConnection(connectionString))
+            {
+                SqlDataReader reader = null;
+
+                _conn.Open();
+
+                //Geef parameter mee met naam stored procedure en geef aan dat het om een stored procedure gaat
+                SqlCommand cmd = new SqlCommand("UpdateEquipped", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                //Geeft parameters mee met de stored procedure welke mijn stored procedure verwacht/nodig heeft
+                cmd.Parameters.Add(new SqlParameter("@EquippedID", character.ID));
+                if(character.EquipedWeapon != null)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Weapon", character.EquipedWeapon.ID));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Weapon", 1));
+                }
+                
+                if(character.EquipedHelmet != null)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Helmet", character.EquipedHelmet.ID));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Helmet", 1));
+                }
+                
+                if(character.EquipedBody != null)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Body", character.EquipedBody.ID));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Body", 2));
+                }
+
+                if(character.EquipedLegs != null)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Legs", character.EquipedLegs.ID));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Legs", 6));
+                }
+
+                if(character.EquipedFeet != null)
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Feet", character.EquipedFeet.ID));
+                }
+                else
+                {
+                    cmd.Parameters.Add(new SqlParameter("@Feet", 5));
+                }
+               
+                cmd.Parameters.Add(new SqlParameter("@Shield", 7));
+
+                reader = cmd.ExecuteReader();
+
+                _conn.Close();
+            }
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace Data.IContexts
     public interface IEquippedContainerContext
     {
         List<Equipped> GetAllEquipped();
+        void UpdateEquipped(Character character);
     }
 }

@@ -8,5 +8,6 @@ namespace Data.Interfaces.IRepository
     public interface IEquippedContainerRepository
     {
         List<Equipped> GetAllEquipped();
+        void UpdateEquipped(Character character);
     }
 }

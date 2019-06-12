@@ -12,5 +12,6 @@ namespace Logic.Interfaces.ILogic
         void GetCharacterEquipped(Character character);
         Character EquipWeapon(Character character, int weaponID);
         Character EquipArmour(Character character, int armourID);
+        void UpdateEquipped(Character character);
     }
 }

@@ -136,5 +136,10 @@ namespace Logic
                 }
             }
         }
+
+        public void UpdateEquipped(Character character)
+        {
+            equippedContainerRepository.UpdateEquipped(character);
+        }
     }
 }
