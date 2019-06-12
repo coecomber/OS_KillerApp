@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSKillerApp_Joost", "OSKillerApp_Joost\OSKillerApp_Joost.csproj", "{9B5B894A-E54E-4D34-95C3-69758C311582}"
 EndProject
@@ -15,13 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Interfaces", "Data.Int
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3697C3D0-10BC-4181-849C-E7131B96B58C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLogic", "TestLogic\TestLogic.csproj", "{AE08B9E2-4FB9-4E05-8A53-88746B3B7BE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicUnitTests", "TestLogic\LogicUnitTests.csproj", "{AE08B9E2-4FB9-4E05-8A53-88746B3B7BE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic.Interfaces", "Logic.Interfaces\Logic.Interfaces.csproj", "{8F43AE78-8C41-48CD-983F-E4C6CDEFA159}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicFactory", "LogicFactory\LogicFactory.csproj", "{9A747CBD-F10B-4EF0-B77B-7B9B0B4E083F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFactory", "DataFactory\DataFactory.csproj", "{46F95F3C-60AE-4DD0-8B28-51A9C354E390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFactory", "DataFactory\DataFactory.csproj", "{46F95F3C-60AE-4DD0-8B28-51A9C354E390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicIntegrationTests", "LogicIntegrationTests\LogicIntegrationTests.csproj", "{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,12 +67,17 @@ Global
 		{46F95F3C-60AE-4DD0-8B28-51A9C354E390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F95F3C-60AE-4DD0-8B28-51A9C354E390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F95F3C-60AE-4DD0-8B28-51A9C354E390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{AE08B9E2-4FB9-4E05-8A53-88746B3B7BE4} = {3697C3D0-10BC-4181-849C-E7131B96B58C}
+		{F9107203-6F08-4BA0-AEA5-D9C3BEEF3BB5} = {3697C3D0-10BC-4181-849C-E7131B96B58C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27E87B11-3D47-459F-8EB2-6C1112E0CC0A}

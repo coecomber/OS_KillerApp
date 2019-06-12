@@ -3,6 +3,7 @@ using DataFactory;
 using Logic.Abstract;
 using Logic.Interfaces.ILogic;
 using Logic.Item;
+using Logic.Skill;
 using Models;
 using Models.Enums;
 using System;
@@ -16,8 +17,7 @@ namespace Logic
         private IMonsterDropContainerRepository monsterDropContainerRepository = new MonsterDropContainerFactory().GetMonsterDropContainerRepository();
         private IDropContainerRepository dropContainerRepository = new DropContainerFactory().GetDropContainerRepository();
         private ISlayerTaskContainerRepository slayerTaskContainerRepository = new SlayerTaskContainerFactory().GetSlayerTaskContainerRepository();
-
-        public int SlayerAmount { get; set; }
+        private CookingLogic cookingLogic = new CookingLogic();
 
         public CharacterLogic()
         {
@@ -253,6 +253,7 @@ namespace Logic
         {
             character.DeathTime = DateTime.Now;
             character.location = Locations.Lumbridge;
+            character.CurrentHealth = character.HitpointsLevel;
 
             return character;
         }

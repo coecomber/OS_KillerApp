@@ -13,7 +13,7 @@ namespace Logic.Skill
     {
         private IFishContainerRepository fishItemContainerRepository = new FishItemContainerFactory().GetFishContainerRepository();
 
-        public Character CatchFish(Character character, string fishName)
+        public Character CatchFish(Character character, string fishName, bool alwaysCatch)
         {
             List<FishItem> fishItems = fishItemContainerRepository.GetAllFishes();
 
@@ -36,7 +36,7 @@ namespace Logic.Skill
                     }
 
                     //If players roll is higher than the fish we catch it.
-                    if(playerRoll >= fishRoll)
+                    if(playerRoll >= fishRoll || alwaysCatch)
                     {
                         character.FishingExperience = character.FishingExperience + 40;
 

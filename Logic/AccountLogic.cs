@@ -7,5 +7,7 @@ namespace Logic
 {
     public class AccountLogic : LivingCreatureLogic, IAccountLogic
     {
+        private CharacterLogic characterLogic = new CharacterLogic();
+
     }
 }

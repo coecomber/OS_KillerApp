@@ -7,6 +7,6 @@ namespace Logic.Interfaces.ILogic.Skill
 {
     public interface IFishingLogic
     {
-        Character CatchFish(Character character, string fishName);
+        Character CatchFish(Character character, string fishName, bool alwaysCatch);
     }
 }

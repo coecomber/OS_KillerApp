@@ -13,6 +13,7 @@ namespace Logic
     public class AccountContainerLogic : IAccountContainerLogic
     {
         private IAccountContainerRepository accountContainerRepository = new AccountContainerFactory().GetAccountContainerRepository();
+        List<AccountLogic> accountLogics = new List<AccountLogic>();
 
         public Account Login(string username, string password)
         {

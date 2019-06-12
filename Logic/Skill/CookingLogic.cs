@@ -60,6 +60,7 @@ namespace Logic.Skill
                         {
                             fishItemToAdd = allfishItem;
                             fishItemToAdd.Amount = 1;
+                            fishItemToAdd.Name = fishToAdd;
                             character.myFishItems.Add(fishItemToAdd);
                             character.CookingExperience += 44;
                         }
